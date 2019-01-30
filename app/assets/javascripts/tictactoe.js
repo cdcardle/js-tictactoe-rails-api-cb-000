@@ -11,7 +11,16 @@ function player(){
 }
 
 function updateState(square){
+<<<<<<< HEAD
   $(square).html(player());
+=======
+  if ($(square).html() === "") {
+    $(square).html(player());
+    return true;
+  } else {
+    return false;
+  }
+>>>>>>> 0d5627000fb5d8946113dc816f28094514e89277
 }
 
 function setMessage(message) {
@@ -32,6 +41,7 @@ function checkWinner() {
 }
 
 function doTurn(square){
+<<<<<<< HEAD
   if (square.innerHTML === "") {
     updateState(square);
     turn++;
@@ -42,6 +52,17 @@ function doTurn(square){
       setMessage('Tie game.');
       save();
       clear();
+=======
+  if (updateState(square)){
+    updateState(square);
+    turn++;
+    if (checkWinner()){
+      $('td').text('');
+      turn = 0;
+    } else if (turn === 9) {
+      $('td').text('');
+      setMessage('Tie game.');
+>>>>>>> 0d5627000fb5d8946113dc816f28094514e89277
     }
   }
 }
